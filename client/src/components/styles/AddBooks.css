@@ -1,0 +1,140 @@
+.addbook-container {
+width:500px; /* Increased form width */
+    margin: 50px auto;
+    padding: 30px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  }
+  
+  .addbook-title {
+    text-align: center;
+    font-size: 28px;
+    margin-bottom: 30px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #333;
+  }
+  
+  .addbook-form {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+  }
+  
+  .form-field {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 100%; /* Make the form fields take up full width */
+  }
+  
+  .form-field input[type="text"],
+  .form-field input[type="number"],
+  .form-field input[type="file"] {
+    padding: 16px 20px;
+    font-size: 16px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    outline: none;
+    width: 100%; /* Increase width of the input fields */
+    transition: border-color 0.3s ease;
+    background-color: #333;
+    color: #fff;
+  }
+  
+  .form-field input:focus {
+    border-color: #2c7be5;
+  }
+  
+  .form-field label {
+    position: absolute;
+    top: 50%;
+    left: 16px;
+    transform: translateY(-50%);
+    font-size: 16px;
+    color: #bbb; /* Lighter color for better visibility */
+    font-weight: bold; /* Make label bold */
+    pointer-events: none;
+    transition: all 0.3s ease;
+  }
+  
+  .form-field input:focus + label,
+  .form-field input:not(:placeholder-shown) + label {
+    top: -10px; /* Move label to top */
+    left: 10px;
+    font-size: 14px;
+    color: #2c7be5; /* Blue color when focused */
+  }
+  
+  .checkbox-field {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 16px;
+    color: #333;
+  }
+  
+  .checkbox-field input[type="checkbox"] {
+    transform: scale(1.2);
+    cursor: pointer;
+  }
+  
+  .addbook-form button {
+    padding: 15px;
+    background-color: #2c7be5;
+    color: #fff;
+    font-size: 17px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .addbook-form button:hover {
+    background-color: #155bb5;
+  }
+  
+  /* Responsive */
+  @media (max-width: 800px) {
+    .addbook-container {
+      margin: 30px;
+      padding: 25px;
+    }
+  
+    .addbook-title {
+      font-size: 24px;
+    }
+  
+    .addbook-form input,
+    .addbook-form button {
+      font-size: 15px;
+    }
+  }
+  
+  @media (max-width: 600px) {
+    .addbook-container {
+      margin: 15px;
+      padding: 20px;
+    }
+  
+    .addbook-title {
+      font-size: 22px;
+    }
+  
+    .addbook-form input,
+    .addbook-form button {
+      font-size: 14px;
+    }
+  }
+  .form-error {
+    color: red;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  
+  .form-success {
+    color: green;
+    font-weight: bold;
+    margin-bottom: 15px;
+  }
+  

@@ -1,0 +1,94 @@
+/* Main container */
+.container {
+  max-width: 500px;
+  margin: 60px auto;
+  padding: 40px;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.1);
+  font-family: 'Poppins', sans-serif;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  color: #2c3e50;
+}
+
+/* Heading style */
+.container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 30px;
+  color: #0e305f;
+  letter-spacing: 1px;
+  font-weight: 600;
+}
+
+/* Form layout */
+.form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+/* Input styling */
+.input {
+  padding: 14px 16px;
+  border-radius: 12px;
+  border: 1.5px solid #ccc;
+  background-color: rgba(255, 255, 255, 0.85);
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+}
+
+.input:focus {
+  border-color: #3c82f6;
+  box-shadow: 0 0 8px rgba(60, 130, 246, 0.4);
+  outline: none;
+}
+
+/* Button style */
+.btn {
+  padding: 14px;
+  background: linear-gradient(to right, #3c82f6, #5a67d8);
+  color: white;
+  font-size: 17px;
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(60, 130, 246, 0.4);
+}
+
+.btn:disabled {
+  background-color: #a0aec0;
+  cursor: not-allowed;
+}
+
+/* Toastify customization */
+.Toastify__toast {
+  font-size: 15px;
+  border-radius: 10px;
+}
+
+/* Responsive design */
+@media (max-width: 600px) {
+  .container {
+    margin: 20px;
+    padding: 25px;
+  }
+
+  .container h2 {
+    font-size: 24px;
+  }
+
+  .input, .btn {
+    font-size: 15px;
+  }
+}
+  
