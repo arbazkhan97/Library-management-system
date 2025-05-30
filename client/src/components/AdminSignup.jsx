@@ -45,7 +45,7 @@ const AdminSignup = () => {
         showToastMessage("Admin signed up successfully!");
         setTimeout(() => {
           navigate("/admin/dashboard");
-        }, 2000);
+        }, 1500);
       } else {
         setError(result.message || "Something went wrong.");
       }

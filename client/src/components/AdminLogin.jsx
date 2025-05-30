@@ -16,7 +16,7 @@ const BASE_URL = import.meta.env.VITE_API_URL;
   const showToastMessage = (message) => {
     setToastMessage(message);
     setShowToast(true);
-    setTimeout(() => setShowToast(false), 2000); // auto hide in 2s
+    setTimeout(() => setShowToast(false), 1500); 
   };
 
   const handleSubmit = async (e) => {
