@@ -52,7 +52,7 @@ const navigate = useNavigate();
 
   return (
     <div className="container">
-      {/* <ToastContainer position="top-right" /> */}
+      
       <h2>Student Registration</h2>
       <form className="form" onSubmit={handleSubmit}>
 
