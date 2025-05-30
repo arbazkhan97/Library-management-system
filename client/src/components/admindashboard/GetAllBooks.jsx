@@ -2,8 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import '../styles/GetAllBooks.css'
 import Loader from './Loader'
-
 import { useNavigate } from 'react-router-dom';
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 const getAllBooks = () => {
   const [books, setBooks] = useState([]);
@@ -13,9 +13,9 @@ const getAllBooks = () => {
 
   const fetchBooks = async () => {
   try {
-    const res = await fetch('http://localhost:3002/api/books/getAllBooks');
+    const res = await fetch(`${BASE_URL}/api/books/getAllBooks`);
     const data = await res.json();
-    const availableBooks = data.filter(book => book.quantity > 0); // Only quantity > 0
+    const availableBooks = data.filter(book => book.quantity > 0); 
     setBooks(availableBooks);
   } catch (err) {
     console.error('Error fetching books:', err);

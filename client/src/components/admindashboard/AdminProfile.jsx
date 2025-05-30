@@ -4,6 +4,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import '../styles/AdminProfile.css'; // Separate CSS file for styling
 import { useNavigate } from "react-router-dom";
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 const AdminProfile = () => {
   const [admin, setAdmin] = useState(null);
@@ -19,7 +20,7 @@ const AdminProfile = () => {
           return;
         }
 
-        const response = await axios.get("http://localhost:3002/api/admin/profile", {
+        const response = await axios.get(`${BASE_URL}/api/admin/profile`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },

@@ -3,6 +3,7 @@ import axios from 'axios';
 import { ToastContainer, toast } from 'react-toastify';
 import '../styles/studentRegistration.css';  // CSS file import
 import { useNavigate } from 'react-router-dom';
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 
 const StudentRegistration = () => {
@@ -29,7 +30,7 @@ const navigate = useNavigate();
 
     setLoading(true);
     try {
-      const res = await axios.post('http://localhost:3002/api/students/registration', {
+      const res = await axios.post(`${BASE_URL}/api/students/registration`, {
         ...formData,
         year: Number(formData.year)
       });

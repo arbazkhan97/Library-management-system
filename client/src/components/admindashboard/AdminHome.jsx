@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import "../styles/AdminHomepage.css";
 import {useNavigate} from 'react-router-dom'
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 const AdminHome = () => {
   const [studentCount, setStudentCount] = useState(0);
@@ -14,7 +15,7 @@ const AdminHome = () => {
       const token = localStorage.getItem("token");
 
       try {
-        const res = await axios.get("http://localhost:3002/api/admin/summary", {
+        const res = await axios.get(`${BASE_URL}/api/admin/summary`, {
           headers: { Authorization: `Bearer ${token}` },
         });
 

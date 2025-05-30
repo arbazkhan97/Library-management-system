@@ -5,6 +5,7 @@ import Loader from './Loader';
 import 'react-toastify/dist/ReactToastify.css';
 import { toast } from 'react-toastify';
 import '../styles/BookDetails.css'; // CSS import
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 const BookDetails = () => {
   const { id } = useParams();
@@ -14,7 +15,7 @@ const BookDetails = () => {
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const res = await axios.get(`http://localhost:3002/api/books/getAllBooks/${id}`);
+        const res = await axios.get(`${BASE_URL}/api/books/getAllBooks/${id}`);
         setBook(res.data);
       } catch (err) {
         console.error("Error fetching book details", err);
@@ -26,7 +27,7 @@ const BookDetails = () => {
 
   const handleDelete = async () => {
     try {
-      await axios.delete(`http://localhost:3002/api/books/getAllBooks/${id}`);
+      await axios.delete(`${BASE_URL}/api/books/getAllBooks/${id}`);
       toast.success("Book deleted successfully");
       setTimeout(() => navigate("/admin/dashboard/all-books"), 1500);
     } catch (err) {

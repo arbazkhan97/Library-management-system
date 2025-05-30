@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import '../styles/AddBooks.css';
 import Toast from './Toast'
 import { useNavigate } from 'react-router-dom';
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 const AddBooks = () => {
   const [successMsg, setSuccessMsg] = useState("");
@@ -41,7 +42,7 @@ const AddBooks = () => {
     });
 
     try {
-      const res = await fetch('http://localhost:3002/api/books/addBook', {
+      const res = await fetch(`${BASE_URL}/api/books/addBook`, {
         method: 'POST',
         body: formDataWithFile,
       });

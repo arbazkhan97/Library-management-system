@@ -4,6 +4,7 @@ import '../styles/ReturnBook.css';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 const ReturnBook = () => {
   const [rollNumber, setRollNumber] = useState('');
@@ -18,10 +19,8 @@ const ReturnBook = () => {
   const handleSearch = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(`http://localhost:3002/api/return/${rollNumber}`);
-      // Filter out entries with null bookId
+      const res = await axios.get(`${BASE_URL}/api/return/${rollNumber}`);
       
-
       const validIssuedBooks = res.data.issuedBooks.filter(book => book.bookId !== null);
       setIssuedBooks(validIssuedBooks);
       setStudentName(res.data.studentName || '');
@@ -38,7 +37,7 @@ const ReturnBook = () => {
 
   const handleReturn = async (bookId) => {
   try {
-    await axios.post(`http://localhost:3002/api/return/return-book`, {
+    await axios.post(`${BASE_URL}/api/return/return-book`, {
       rollNumber,
       bookId
     });

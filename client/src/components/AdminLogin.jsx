@@ -11,6 +11,7 @@ const AdminLogin = () => {
   const [toastMessage, setToastMessage] = useState("");
   const [showToast, setShowToast] = useState(false);
   const navigate = useNavigate();
+const BASE_URL = import.meta.env.VITE_API_URL;
 
   const showToastMessage = (message) => {
     setToastMessage(message);
@@ -22,7 +23,7 @@ const AdminLogin = () => {
     e.preventDefault();
     try {
       const response = await axios.post(
-        "http://localhost:3002/api/admin/login",
+        `${BASE_URL}/api/admin/login`,
         { email, password }
       );
 

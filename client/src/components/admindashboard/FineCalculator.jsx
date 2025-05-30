@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import '../styles/FineCalculator.css'; // Separate CSS file for styling
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 const FineCalculator = () => {
   const [rollNumber, setRollNumber] = useState('');
@@ -14,7 +15,7 @@ const FineCalculator = () => {
     setStudentData(null);
 
     try {
-      const response = await axios.get(`http://localhost:3002/api/fines/${rollNumber.trim()}`);
+      const response = await axios.get(`${BASE_URL}/api/fines/${rollNumber.trim()}`);
       setStudentData(response.data);
     } catch (err) {
       setError(err.response?.data?.message || 'Error fetching fine details');

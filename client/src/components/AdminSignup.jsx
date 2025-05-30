@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './styles/AdminSignup.css';
 import { useNavigate } from "react-router-dom";
 import Toast from '../components/admindashboard/Toast';
-
+const BASE_URL = import.meta.env.VITE_API_URL;
 const AdminSignup = () => {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
@@ -33,7 +33,7 @@ const AdminSignup = () => {
     const adminData = { name, email, password };
 
     try {
-      const response = await fetch("http://localhost:3002/api/admin/signup", {
+      const response = await fetch(`${BASE_URL}/api/admin/signup`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(adminData),

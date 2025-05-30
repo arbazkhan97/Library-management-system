@@ -4,6 +4,7 @@ import axios from "axios";
 import { useParams, useNavigate } from "react-router-dom";
 import { toast } from 'react-toastify';
 import '../styles/EditBook.css'
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 const EditBook = () => {
   const { id } = useParams();
@@ -22,7 +23,7 @@ const EditBook = () => {
   useEffect(() => {
     const fetchBook = async () => {
       try {
-        const res = await axios.get(`http://localhost:3002/api/books/getAllBooks/${id}`);
+        const res = await axios.get(`${BASE_URL}/api/books/getAllBooks/${id}`);
         setBookData(res.data);
         setCurrentImage(res.data.image); 
       } catch (err) {
@@ -54,7 +55,7 @@ const EditBook = () => {
 
     try {
       await axios.put(
-        `http://localhost:3002/api/books/getAllBooks/${id}`,
+        `${BASE_URL}/api/books/getAllBooks/${id}`,
         formData,
         {
           headers: {

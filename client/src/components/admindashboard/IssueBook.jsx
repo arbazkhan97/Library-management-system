@@ -5,6 +5,7 @@ import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import { useNavigate } from 'react-router-dom';
 import Select from 'react-select';
+const BASE_URL = import.meta.env.VITE_API_URL;
 
 const IssueBook = () => {
   const [rollNumber, setRollNumber] = useState('');
@@ -15,7 +16,7 @@ const IssueBook = () => {
 
   const fetchBooks = async () => {
     try {
-      const res = await axios.get('http://localhost:3002/api/books/available-books');
+      const res = await axios.get(`${BASE_URL}/api/books/available-books`);
       setBooks(res.data);
     } catch (err) {
       toast.error('Failed to fetch books');
@@ -24,7 +25,7 @@ const IssueBook = () => {
 
   const handleSearch = async () => {
     try {
-      const res = await axios.get(`http://localhost:3002/api/students/${rollNumber}`);
+      const res = await axios.get(`${BASE_URL}/api/students/${rollNumber}`);
       setStudent(res.data);
       fetchBooks();
     } catch (err) {
@@ -39,7 +40,7 @@ const IssueBook = () => {
     }
 
     try {
-      await axios.post('http://localhost:3002/api/issue/issue-book', {
+      await axios.post(`${BASE_URL}/api/issue/issue-book`, {
         rollNumber,
         bookId: selectedBookId
       });
