@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
-import { ToastContainer, toast } from 'react-toastify';
+// import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import '../styles/studentRegistration.css';  // CSS file import
 import { useNavigate } from 'react-router-dom';
 const BASE_URL = import.meta.env.VITE_API_URL;
@@ -51,7 +52,7 @@ const navigate = useNavigate();
 
   return (
     <div className="container">
-      <ToastContainer position="top-right" />
+      {/* <ToastContainer position="top-right" /> */}
       <h2>Student Registration</h2>
       <form className="form" onSubmit={handleSubmit}>
 
