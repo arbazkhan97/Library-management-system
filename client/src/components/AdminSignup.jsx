@@ -79,8 +79,8 @@ const AdminSignup = () => {
         />
         <button type="submit">Sign Up</button>
       </form>
-      <p>
-        Already have an account? <a href="/admin/login">Login</a>
+      <p className="mt-2" >
+        Already have an account? <a className="signup-link" onClick={()=>navigate('/admin/login')} >Login</a>
       </p>
       {showToast && <Toast message={toastMessage} />}
     </div>

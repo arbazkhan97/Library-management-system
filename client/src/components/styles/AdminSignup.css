@@ -35,3 +35,8 @@
     font-weight: bold;
   }
   
+  .signup-link{
+    color: rgb(97, 97, 205);
+    cursor: pointer;
+  }
+  
