@@ -16,7 +16,7 @@ const ResetPassword = () => {
       await axios.post(`${BASE_URL}/api/reset-password`, { email, newPassword });
       toast.success('Password reset successful');
       localStorage.removeItem('resetEmail');
-      navigate('/login');
+      navigate('/admin/login');
     } catch (err) {
       toast.error(err.response?.data?.message || 'Error resetting password');
     }

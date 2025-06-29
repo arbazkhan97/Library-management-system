@@ -14,6 +14,7 @@ const ForgotPassword = () => {
       await axios.post(`${BASE_URL}/api/forgot-password`, { email });
 
       localStorage.setItem('resetEmail', email);
+      localStorage.setItem('otpExpiry', Date.now() + 2 * 60 * 1000);
       toast.success('OTP sent to your register email');
       navigate('/verify-otp');
     } catch (err) {
