@@ -24,11 +24,14 @@ exports.sendOTP = async (req, res) => {
 exports.verifyOTP = async (req, res) => {
   const { email, otp } = req.body;
   const admin = await Admin.findOne({ email });
-  if (!admin || admin.resetOTP !== otp)
-    return res.status(400).json({ message: "Invalid OTP" });
 
-  if (Date.now() > admin.otpExpiry)
+  if (!admin || admin.resetOTP.toString() !== otp.toString()) {
+    return res.status(400).json({ message: "Invalid OTP" });
+  }
+
+  if (Date.now() > admin.otpExpiry) {
     return res.status(400).json({ message: "OTP expired" });
+  }
 
   res.json({ message: "OTP verified" });
 };
