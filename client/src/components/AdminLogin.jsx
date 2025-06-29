@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import './styles/AdminLogin.css';
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { Link } from "react-router-dom";
 import Toast from '../components/admindashboard/Toast';
 
 const AdminLogin = () => {
@@ -65,7 +66,7 @@ const BASE_URL = import.meta.env.VITE_API_URL;
     />
   </div>
   <button className="mb-2 " type="submit">Login</button>
-  <a style={{cursor:"pointer",color:'blue'}} onClick={() => navigate(`/forgot-password`)}> Forgot password?</a>
+  <Link to='/forgot-password' > Forgot password?</Link>
   
    
   </form>
