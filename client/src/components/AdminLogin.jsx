@@ -65,10 +65,11 @@ const BASE_URL = import.meta.env.VITE_API_URL;
     />
   </div>
   <button type="submit">Login</button>
-</form>
-
-
-      {showToast && <Toast message={toastMessage} />}
+  <button onClick={() => navigate(`/forgot-password`)}> Forgot password?</button>
+  
+   
+  </form>
+  
     </div>
   );
 };
