@@ -64,8 +64,8 @@ const BASE_URL = import.meta.env.VITE_API_URL;
       required
     />
   </div>
-  <button type="submit">Login</button>
-  <button onClick={() => navigate(`/forgot-password`)}> Forgot password?</button>
+  <button className="mb-2 " type="submit">Login</button>
+  <a style={{cursor:"pointer",color:'blue'}} onClick={() => navigate(`/forgot-password`)}> Forgot password?</a>
   
    
   </form>

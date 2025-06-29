@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
+import { Link } from 'react-router-dom';
 const BASE_URL = import.meta.env.VITE_API_URL;
 
 const VerifyOtp = () => {
@@ -54,7 +55,7 @@ const VerifyOtp = () => {
 
       <p style={{ color: timeLeft === 0 ? 'red' : 'green', marginBottom: '10px' }}>
         {timeLeft === 0
-          ? 'OTP expired. Please request again.'
+          ? `OTP expired. Please request again. ` 
           : `OTP expires in: ${formatTime(timeLeft)}`}
       </p>
 
@@ -69,6 +70,8 @@ const VerifyOtp = () => {
         <button type="submit" disabled={timeLeft === 0}>
           Verify
         </button>
+        <Link to='/forgot-password' >Request again?</Link>
+
       </form>
     </div>
   );
