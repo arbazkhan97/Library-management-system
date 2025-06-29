@@ -63,6 +63,12 @@ const adminProfile=require('./routes/adminProfile.js')
 app.use('/api/admin',adminProfile)
 
 
+// forget password
+
+const forgetPassword=require('./routes/forgetPassword.js')
+
+app.use('/api',forgetPassword)
+
 app.listen(PORT,()=>{
     console.log(`app is listening on port ${PORT}`)
     mongoose.connect(DB_URL).then(()=>{
