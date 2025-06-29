@@ -43,14 +43,22 @@ exports.verifyOTP = async (req, res) => {
 
 exports.resetPassword = async (req, res) => {
   const { email, newPassword } = req.body;
-  const admin = await Admin.findOne({ email });
-  if (!admin) return res.status(404).json({ message: "Admin not found" });
 
-  const hashed = await bcrypt.hash(newPassword, 10);
-  admin.password = hashed;
-  admin.resetOTP = null;
-  admin.otpExpiry = null;
-  await admin.save();
+  try {
+    const admin = await Admin.findOne({ email });
+    if (!admin) return res.status(404).json({ message: "Admin not found" });
 
-  res.json({ message: "Password updated successfully" });
+    const hashed = await bcrypt.hash(newPassword, 10);
+    admin.password = hashed;
+    admin.resetOTP = null;
+    admin.otpExpiry = null;
+    await admin.save();
+
+    res.json({ message: "Password updated successfully" });
+
+  } catch (err) {
+    console.error("Reset password error:", err);
+    res.status(500).json({ message: "Server error while resetting password" });
+  }
 };
+
