@@ -1,4 +1,4 @@
- 
+
  // SEND OPT
 
 const Admin = require('../models/Admin')
@@ -39,7 +39,7 @@ exports.verifyOTP = async (req, res) => {
 
 //RESET PASSWORD
 
-// const bcrypt = require("bcrypt");
+ const bcrypt = require("bcrypt");
 
 exports.resetPassword = async (req, res) => {
   const { email, newPassword } = req.body;
