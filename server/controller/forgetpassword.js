@@ -44,8 +44,10 @@ exports.verifyOTP = async (req, res) => {
 
 
 //RESET PASSWORD
+// Reset password ke baad yeh run karo
 const bcrypt = require("bcryptjs");
-const Admin = require("../models/Admin"); // yeh path aapke project structure ke hisaab se sahi hona chahiye
+const Admin = require('../models/Admin')
+
 
 exports.resetPassword = async (req, res) => {
   const { email, newPassword } = req.body;
@@ -56,6 +58,7 @@ exports.resetPassword = async (req, res) => {
     }
 
     const admin = await Admin.findOne({ email });
+    
     if (!admin) {
       return res.status(404).json({ message: "Admin not found" });
     }
