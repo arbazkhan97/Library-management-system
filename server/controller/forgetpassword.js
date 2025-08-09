@@ -48,7 +48,6 @@ exports.verifyOTP = async (req, res) => {
 const bcrypt = require("bcryptjs");
 const Admin = require('../models/Admin')
 
-
 exports.resetPassword = async (req, res) => {
   const { email, newPassword } = req.body;
 
@@ -58,7 +57,6 @@ exports.resetPassword = async (req, res) => {
     }
 
     const admin = await Admin.findOne({ email });
-    
     if (!admin) {
       return res.status(404).json({ message: "Admin not found" });
     }
@@ -69,9 +67,17 @@ exports.resetPassword = async (req, res) => {
     admin.otpExpiry = null;
     await admin.save();
 
+    // 🔍 Debugging: password match check
+    const adminCheck = await Admin.findOne({ email });
+    console.log("DB me saved password hash:", adminCheck.password);
+
+    const match = await bcrypt.compare(newPassword, adminCheck.password);
+    console.log("Kya match ho raha hai?", match);
+
     return res.json({ message: "Password updated successfully" });
   } catch (err) {
     console.error("Reset password error:", err.message);
     return res.status(500).json({ message: "Server error while resetting password" });
   }
 };
+
